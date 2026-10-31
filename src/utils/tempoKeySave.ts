@@ -4,6 +4,7 @@ import { detectKeyFromTracks, parseKeySignature, formatKey } from './keyDetectio
 import { confirmDialog } from './confirmController'
 import { songKey } from './songIdentity'
 import { carryCorrection } from './tempoCorrection'
+import { t } from './i18n'
 
 // ── Shared math — session BPM/transpose vs. the loaded file's own values,
 // used by both the standalone tempoKey:save path (below) and the Playback
@@ -21,12 +22,12 @@ export function computeTempoKeyPayload(): {
 
   const parts: string[] = []
   if (bpmRatio !== 1) {
-    parts.push(`Changed BPM from ${Math.round(state.originalBpm)} to ${Math.round(state.bpm)}`)
+    parts.push(t`Changed BPM from ${Math.round(state.originalBpm)} to ${Math.round(state.bpm)}`)
   }
   if (transposeSemitones !== 0 && state.detectedKey) {
     const fromKey = formatKey({ ...state.detectedKey, transpose: 0 }, state.noteNaming, state.accidentals)
     const toKey   = formatKey(state.detectedKey, state.noteNaming, state.accidentals)
-    parts.push(`Changed key from ${fromKey} to ${toKey}`)
+    parts.push(t`Changed key from ${fromKey} to ${toKey}`)
   }
 
   // Final key (base + transpose already folded in), sent so main.ts can
@@ -62,7 +63,7 @@ export async function saveTempoKeyChanges(): Promise<boolean> {
       summary: payload.summary, finalKey: payload.finalKey,
     })
     if (!result.ok) {
-      await confirmDialog({ title: 'Save Failed', message: result.message ?? 'Could not save tempo/key changes.', buttons: ['OK'] })
+      await confirmDialog({ title: t`Save Failed`, message: result.message ?? t`Could not save tempo/key changes.`, buttons: [t`OK`] })
       return false
     }
 
@@ -87,7 +88,7 @@ export async function saveTempoKeyChanges(): Promise<boolean> {
     return true
   } catch (err) {
     console.error('[Orfeo] saveTempoKeyChanges failed:', err)
-    await confirmDialog({ title: 'Save Failed', message: 'Could not save tempo/key changes.', detail: String(err), buttons: ['OK'] })
+    await confirmDialog({ title: t`Save Failed`, message: t`Could not save tempo/key changes.`, detail: String(err), buttons: [t`OK`] })
     return false
   }
 }
@@ -103,10 +104,10 @@ export async function confirmDiscardDirtyTempoKey(message: string): Promise<bool
   if (!dirty) return true
 
   const choice = await confirmDialog({
-    title: 'Unsaved Tempo/Key Changes',
+    title: t`Unsaved Tempo/Key Changes`,
     message,
-    detail: 'Your tempo and/or key changes will be lost if you discard.',
-    buttons: ['Save', 'Discard', 'Cancel'],
+    detail: t`Your tempo and/or key changes will be lost if you discard.`,
+    buttons: [t`Save`, t`Discard`, t`Cancel`],
   })
   if (choice === 2) return false // Cancel
   if (choice === 0) {            // Save

@@ -1,284 +1,127 @@
-# Orfeo
+# Orfeo 简体中文汉化版
 
-**From MIDI to mastery.** Turn any MIDI file into an interactive piano-learning
-experience.
+> [!IMPORTANT]
+> 本仓库是 [Squarebow/Orfeo](https://github.com/Squarebow/Orfeo) 的**非官方社区汉化版本**，不是 Orfeo 官方发布的语言包或安装包。
 
-[![Version](https://img.shields.io/github/v/release/Squarebow/Orfeo?label=Version&color=blue)](https://github.com/Squarebow/Orfeo/releases/latest) [![License](https://img.shields.io/badge/License-GPLv3-blue)](LICENSE.md) [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?logo=windows)](https://github.com/Squarebow/Orfeo/releases)
+Orfeo 是一款免费、开源的 Windows 桌面钢琴学习软件，可以把 MIDI 文件变成交互式钢琴学习界面。它支持瀑布流钢琴卷帘、变速、移调、循环练习、节拍器、和弦识别、音轨混音、MIDI 编辑和硬件 MIDI 键盘输入。
 
-📖 **User manual: [orfeo.cc/docs](https://orfeo.cc/docs)**
+本汉化版在保留原有 MIDI、音频、音符及音色处理逻辑的前提下，为主要界面接入简体中文翻译。
 
-Orfeo is free and always will be. If it helps your playing, you can support it on [Ko-fi](https://ko-fi.com/squarebow) or [GitHub Sponsors](https://github.com/sponsors/Squarebow).
+[![上游版本](https://img.shields.io/badge/上游版本-1.5.4-blue)](https://github.com/Squarebow/Orfeo)
+[![平台](https://img.shields.io/badge/平台-Windows-lightgrey?logo=windows)](https://github.com/Squarebow/Orfeo)
+[![许可证](https://img.shields.io/badge/许可证-GPLv3-blue)](LICENSE.md)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X5T32931V0)
+## 汉化说明
 
-![Orfeo mid-playback: falling notes on the keyboard, keys lit in track colours, the live chord name above](.github/images/orfeo-hero.webp)
+当前版本基于以下官方源码制作：
 
----
+- 上游项目：`Squarebow/Orfeo`
+- 上游版本：`1.5.4`
+- 上游提交：`7a0f75e57cc4e2f75f51be7dfde04d2ad4738648`
+- 翻译词条：812 条
 
-Orfeo is a free, open-source desktop app that turns MIDI files into an
-interactive piano lesson: notes fall onto a virtual keyboard in real time, keys
-light up as they play, and you can slow down, loop, transpose, and explore any
-passage at your own pace. Real-time chord detection, hand-coloured keys,
-interactive chord and scale explorers, a full mixer, and per-note editing — with
-a piano roll that looks like it was built this decade.
+已重点汉化：
 
-It's not a game — no scoring, no streaks, no subscription. No account, no
-telemetry; MIDI files are processed entirely on your device.
+- 设置向导和设置面板
+- MIDI 曲库、搜索、收藏及文件操作
+- 播放控制、速度、调性、循环和节拍器
+- 音轨面板、静音、独奏及专注模式
+- MIDI 播放编辑器
+- MIDI 音符编辑器及常用确认对话框
+- 文件信息、导入、保存及错误提示
 
-## Contents
+文件名、曲名、音轨名、乐器名称和用户输入内容会保留原值，避免翻译逻辑误改个人数据。
 
-- [Features](#features)
-- [Download](#download)
-- [Documentation](#documentation)
-- [Building from source](#building-from-source)
-- [FAQ](#faq)
-- [Why Orfeo](#why-orfeo)
-- [License](#license)
+## 当前状态
 
----
+已完成以下验证：
 
-## Features
+- 812 条英文目录与中文目录完整对应
+- 动态占位符检查通过，缺失及错配数量为 0
+- `npm run typecheck` 通过
+- 开发版实际启动通过
+- 设置、曲库、播放、音轨和 MIDI 编辑界面烟雾测试通过
+- `npm run dist:portable` Windows 便携版构建通过
+- 构建后的便携版实际启动通过
 
-### Piano Roll & Playback
+仍有少量尚未接入国际化接口的探索器、控制台混音器、图形画布文字及复杂动态提示可能显示英文。欢迎继续补充，但请勿使用全局 DOM 文本替换，以免误改用户的文件名或音轨名。
 
-- **Import** `.mid` / `.midi`, plus MusicXML, Guitar Pro, Capella, and karaoke
-  `.kar` (converted automatically)
-- **Falling-note piano roll** onto a 61 / 73 / 88-key keyboard, colour-coded per
-  track, pixel-aligned to each key
-- **Tempo control** — slow down or speed up without changing pitch; long-press
-  the BPM arrows to glide to a target
-- **Change key** — transpose the whole piece by semitones
-- **Loop region** — draw a loop directly on the waterfall and drill any section
-- **Metronome** — follows the file's embedded tempo map through mid-song changes;
-  right-click for volume and count-in
-- **Count-in** — 1–4 bars of clicks before the music starts, at the song's real
-  tempo, leading straight into the first note
-- **Tap Tempo** — fix songs whose bar lines and metronome don't match the music:
-  tap along on Space or a MIDI key, and Orfeo lines your beat up with the song's
-  own drums and bass, remembers it for that song, and never touches the file
-- **Tempo warnings** — optional marks in the Library and the top bar for songs
-  whose bar lines and metronome don't match the music's beat
-- **Tracks panel & Console Mixer** — mute, solo, recolour, show/hide tracks;
-  per-channel volume, pan, chorus, reverb with live VU meters (saved into the
-  file on close); master Tone and Compressor
-- **Focus Mode** — narrow instantly to keys, bass, and drums
-- **Presentation Mode** (`F11`) — distraction-free view of just the roll and
-  keyboard
+## 获取源码
 
-### Interactive Keyboard
+```powershell
+git clone https://github.com/Ylong4004/Orfeo-zh-CN.git
+cd Orfeo-zh-CN
+```
 
-- **Click or drag** to play; drag across keys for glissando
-- **Docked or floating** — a draggable, resizable panel for multi-window setups
-- **Key highlighting** in track colour, with the chord name shown live above
-- **Automated hand assignment** — notes colour-code by which hand plays
-  them, in Practice (moving split line) or Performance (per-note tags) mode, with
-  optional colourblind-friendly L/R badges
-- **Hardware MIDI input** — play along on a real keyboard with true sustain and
-  multi-device support. A dedicated *MIDI Keyboard* page in Settings lists every
-  keyboard by name and sets touch response, pedals and controls, and a double-note
-  filter, with a **Delay check** that shows where every millisecond between key and
-  speaker goes
-- **Step Through** — walk through a song one note or chord at a time with `→` and
-  `←`, at your own pace
+本仓库提供汉化后的完整源码。超大体积的构建产物不会直接提交到 Git 历史中。
 
-### Chord & Scale Explorers
+## 本地运行
 
-- **Chord Explorer** — browse and audition any chord in any key; filter by hand
-  span or note count; cycle inversions; play progressions in nine chord
-  styles
-- **Scale Explorer** — interactive Circle of Fifths; ten scale types, each with
-  its diatonic chords and Roman numerals
-- **Real-time chord detection** with three tracking modes (Auto, Harmony,
-  Follow Instrument)
-- **Chord Prompter** — a lead-sheet-style past / current / next readout synced
-  to playback
-- **Chord Transcription** *(beta)* — generate a printable chord chart PDF for
-  any file
-- **Lock-a-Chord** — `Shift`+click any 3+ keys to build and lock a chord, then
-  cycle inversions
+开发环境需要：
 
-### MIDI Editing
+- Windows 10 或 Windows 11
+- Node.js 22.12 或更高版本
+- Git
 
-- **MIDI Playback Editor** — exclude, rename, recolour, reassign instrument,
-  merge, and split-hands tracks; saves as a new `_ORFEO_vN.mid` without touching
-  the original
-- **Note Editor** — move, resize, add, delete, and re-velocity individual notes
-  on the roll, with marquee / lasso / pen tools and full undo/redo
-- **MIDI library** — browse a folder, star favourites, fuzzy-search, auto-refresh
-- **Edit history embedded in the file** — travels with the `.mid` anywhere,
-  survives reinstalls
+安装依赖并启动：
 
-### Visual Flourishes
-
-- **Hit effects** — seven optional particle animations where notes strike the
-  keyboard (glow bloom, ripple ring, particle burst, smoke plume, colour aura,
-  starburst nova, comet trail), with custom colour and a real bloom filter
-
-### Audio
-
-- **Master volume** — a physical-feeling toolbar knob, persists across sessions
-- **Three sound engines** — **GM** (General MIDI: instant, no download),
-  **Studio** (SpessaSynth + downloadable SF2/SF3 soundfonts, GeneralUser GS by
-  default) for far richer sound, and **Native** *(beta)*, which plays the same
-  soundfonts straight to your sound card so a MIDI keyboard is heard in under
-  10 ms. Native mixes songs like Studio and has two modes: **Shared** (other apps
-  keep playing) and **Exclusive** (the shortest latency from keyboard to speaker,
-  3-10 ms in average, depending on your sound card). A connected keyboard switches
-  it to Exclusive by itself
-- **Your own mix, played as written** — both engines follow a song's own volume
-  swells and fades, tracks sharing a MIDI channel share its mix, and parts that
-  change instrument mid-song switch at the right moment
-
-### Settings
-
-- **Setup** — the everyday switches (sound engine, Focus mode, Tap Tempo, note
-  names, key range, zoom…) in the left panel, each with a one-line explanation
-- **Settings window** (`Ctrl` `,`) — every setting in nine groups with full
-  descriptions, a search box, and a link to the matching page of the online
-  manual. Hints can be switched off with the *Tooltips* switch under Appearance
-
-Full walkthrough of every feature: **[orfeo.cc/docs](https://orfeo.cc/docs)**.
-
----
-
-## Download
-
-Grab the latest build from the [Releases](https://github.com/Squarebow/Orfeo/releases)
-page:
-
-<table width="100%">
-<colgroup><col width="34%"><col width="66%"></colgroup>
-<thead><tr><th>File</th><th>Use</th></tr></thead>
-<tbody>
-<tr><td><code>Orfeo-Setup-&lt;version&gt;.exe</code></td><td>Standard Windows installer — Start Menu shortcut, automatic updates</td></tr>
-<tr><td><code>Orfeo-&lt;version&gt;-portable.exe</code></td><td>Portable — no installation, runs from anywhere, manual updates</td></tr>
-</tbody>
-</table>
-
-Prefer the Store? Orfeo is also in the
-[Microsoft Store](https://apps.microsoft.com/detail/9NJ9Q01P8JQD), which keeps it
-up to date for you.
-
-Not sure which, or want to know how they differ (auto-updates, where settings
-live)? See **[docs/INSTALLATION.md](docs/INSTALLATION.md)**.
-
----
-
-## Documentation
-
-<table width="100%">
-<colgroup><col width="20%"><col width="80%"></colgroup>
-<thead><tr><th>Document</th><th>What's in it</th></tr></thead>
-<tbody>
-<tr><td><a href="https://orfeo.cc/docs">User manual</a></td><td>The complete guide — Play, Edit, Practice, Manage files, Extras (online at orfeo.cc)</td></tr>
-<tr><td><a href="https://orfeo.cc/docs/support/roadmap">Roadmap</a></td><td>What is being built next</td></tr>
-<tr><td><a href="docs/SHORTCUTS.md">Shortcuts</a></td><td>Every keyboard and mouse gesture</td></tr>
-<tr><td><a href="docs/INSTALLATION.md">Installation</a></td><td>Installer vs. portable, updates, where data lives</td></tr>
-<tr><td><a href="docs/ARCHITECTURE.md">Architecture</a></td><td>How Orfeo is built and why</td></tr>
-<tr><td><a href="docs/CHANGELOG.md">Changelog</a></td><td>Technical release history</td></tr>
-<tr><td><a href="docs/CONTRIBUTING.md">Contributing</a></td><td>Build from source, cut a release</td></tr>
-</tbody>
-</table>
-
----
-
-## Building from source
-
-```bash
-git clone https://github.com/Squarebow/Orfeo.git
-cd Orfeo
-npm install
+```powershell
+npm ci --no-audit --no-fund
 npm run dev
 ```
 
-Requires [Node.js](https://nodejs.org) 20 LTS or newer. Full build and release
-instructions, including macOS/Linux, are in
-[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md).
+类型检查：
 
----
+```powershell
+npm run typecheck
+```
 
-## FAQ
+## 构建中文便携版
 
-<details>
-<summary><b>Is Orfeo free?</b></summary>
+除 Node.js 外，完整便携版构建还需要：
 
-Yes — completely free and open source. No subscription, no paywalled features,
-no account.
+- Rust `stable-x86_64-pc-windows-msvc`
+- Visual Studio C++ 生成工具
 
-</details>
+执行：
 
-<details>
-<summary><b>Does it need an account or an internet connection?</b></summary>
+```powershell
+npm ci --no-audit --no-fund
+npm run dist:portable
+```
 
-No account, no login, no telemetry — and no internet connection is needed to
-play, practise or edit. MIDI files are processed entirely on your device, and
-every sound engine works offline: the default sound set (GeneralUser GS)
-ships inside the installer.
+构建完成后，便携版位于：
 
-Orfeo only goes online when you ask it to, or to check for updates:
+```text
+release/Orfeo-1.5.4-portable.exe
+```
 
-- **Extra sound sets** (FluidR3 GM ~142 MB, MuseScore General ~38 MB) are not
-  in the installer; each is downloaded once, only when you press its download
-  button in Settings → Audio, and kept in `%APPDATA%\Orfeo\soundfonts\`
-  (your own imported `.sf2` / `.sf3` files go there too).
-- **Updates:** the installed version checks GitHub for a new release when it
-  starts; the portable version only shows a link, and *Check for updates* in the
-  Microsoft Store version opens Orfeo's Store page. Offline, this simply
-  doesn't happen.
-- **Links** (user manual, GitHub) open in your web browser.
+便携版会在 EXE 同级目录创建 `Orfeo-Data` 保存设置和缓存，不会修改系统中已安装的官方 Orfeo 数据。
 
-</details>
+## 汉化实现
 
-<details>
-<summary><b>What platforms does Orfeo run on?</b></summary>
+主要相关文件：
 
-Windows 10/11 today, with an installer and a portable build. Orfeo is built on
-Electron, so macOS and Linux builds are possible and community-buildable — see
-[CONTRIBUTING.md](docs/CONTRIBUTING.md) — there just aren't official builds for
-those platforms yet.
+- `src/utils/i18n.ts`：翻译入口及动态占位符处理
+- `src/utils/orfeoZhCN.ts`：简体中文翻译表
+- `src/i18n/locales/en.json`：从源码提取的英文消息目录
+- 各界面组件：使用 `t(...)` 接入静态 UI 文本
 
-</details>
+本项目不修改 MIDI 解析、播放、音符编辑、音色合成或音频输出算法。汉化工作只应调整界面文字和国际化接线。
 
-<details>
-<summary><b>Does Orfeo support Finale, Sibelius, or MuseScore files?</b></summary>
+## 与上游同步
 
-Not their native formats directly — but all three export MusicXML, which Orfeo
-imports and converts to MIDI automatically. Guitar Pro, Capella, and karaoke
-`.kar` files are supported natively too.
+本仓库保留上游 Git 历史。同步官方更新前请先检查 Orfeo 是否已经引入正式国际化框架，并重新运行类型检查、开发版测试和便携版构建。
 
-</details>
+官方项目及英文文档：
 
-<details>
-<summary><b>What MIDI files work best?</b></summary>
+- [Squarebow/Orfeo](https://github.com/Squarebow/Orfeo)
+- [Orfeo 官方使用手册](https://orfeo.cc/docs)
 
-Real, human-performed files with natural rubato and mid-song tempo changes —
-Orfeo tracks the tempo map properly instead of assuming a flat click. Cleanly
-quantized files work great too. Messy downloads can be cleaned up with the
-Playback and Note editors without touching the original.
+发现与汉化无关的程序问题时，请先确认该问题能否在官方版本复现；官方版本问题应反馈到上游项目。
 
-</details>
+## 许可证与致谢
 
----
+本项目继承上游项目的 [GNU General Public License v3.0](LICENSE.md)。分发修改版本时请遵守 GPLv3，并保留原作者版权、许可证及源码获取方式。
 
-## Why Orfeo
-
-Before Synthesia there was [Rondo](https://macsim.app/rondo/) — a lovely,
-Mac-only MIDI learning app with a scrolling piano roll, tempo slowdown, and
-track filtering. Development stopped and it no longer runs on modern macOS. The
-alternative that filled the gap became expensive and gamified, and hasn't
-meaningfully modernized in years.
-
-Orfeo picks up Rondo's idea, rebuilt from scratch as an actively maintained,
-cross-platform-capable app with one goal: **make the music itself — not the app
-around it — the focus.** Free forever, no gamification, real rubato support,
-open source, and a modern interface.
-
-*Inspired by [Rondo](https://macsim.app/rondo/) (RIP).*
-
----
-
-## License
-
-GPL-3.0-or-later © [SquareBow](https://github.com/Squarebow) — see
-[LICENSE.md](LICENSE.md). Bundles GSAP under a separate additional-permission
-grant; see the license file and [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+感谢 [Squarebow](https://github.com/Squarebow) 及 Orfeo 的所有贡献者。本仓库的中文翻译和界面接入由社区维护，与上游作者没有官方隶属或背书关系。

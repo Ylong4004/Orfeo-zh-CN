@@ -120,3 +120,6 @@ native/*/target/
 native/target/
 # Built add-on + FluidSynth DLLs for dev runs (scripts/build-native.mjs)
 native/build/
+
+# Local backup created by the unofficial Simplified Chinese patch installer
+.orfeo-zhcn-backup/

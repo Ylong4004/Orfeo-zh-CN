@@ -3,6 +3,7 @@ import { midiToEditableCopy } from './noteEditorCommands'
 import type { ToneNote } from './noteEditorCommands'
 import { confirmDialog } from './confirmController'
 import { useStore } from '../store'
+import { t } from './i18n'
 
 export type NEQuantize = 4 | 8 | 16 | 32
 
@@ -18,7 +19,7 @@ export type NETool = 'select' | 'pen' | 'marquee' | 'lasso'
 // NoteEditorToolbar — that's fine, this one is the idle fallback for the
 // context-aware row-3 hint (which changes with tool/hover/selection state),
 // not a duplicate of anything dynamic. ──────────────────────────────────────
-const DEFAULT_HINT = 'Nothing selected'
+const DEFAULT_HINT = t`Nothing selected`
 
 // ── NoteEditorState — module-level singleton bridging NoteEditorToolbar ↔ PianoRoll
 // Both components read/write this object; no prop threading needed.
@@ -123,16 +124,15 @@ export function buildNoteEditSummary(descriptions: string[]): string {
     else if (batchAssign) reassigned += parseInt(batchAssign[1], 10)
     else if (d.startsWith('Assign left hand') || d.startsWith('Assign right hand')) reassigned++
   }
-  const s = (n: number) => n === 1 ? '' : 's'
   const parts: string[] = []
-  if (added > 0) parts.push(`added ${added} note${s(added)}`)
-  if (removed > 0) parts.push(`removed ${removed} note${s(removed)}`)
-  if (moved > 0) parts.push(`moved ${moved} note${s(moved)}`)
-  if (repitched > 0) parts.push(`repitched ${repitched} note${s(repitched)}`)
-  if (resized > 0) parts.push(`resized ${resized} note${s(resized)}`)
-  if (velocityChanged > 0) parts.push(`changed velocity on ${velocityChanged} note${s(velocityChanged)}`)
-  if (reassigned > 0) parts.push(`reassigned hand on ${reassigned} note${s(reassigned)}`)
-  return parts.length > 0 ? parts.join(', ') : 'Saved'
+  if (added > 0) parts.push(added === 1 ? t`added ${added} note` : t`added ${added} notes`)
+  if (removed > 0) parts.push(removed === 1 ? t`removed ${removed} note` : t`removed ${removed} notes`)
+  if (moved > 0) parts.push(moved === 1 ? t`moved ${moved} note` : t`moved ${moved} notes`)
+  if (repitched > 0) parts.push(repitched === 1 ? t`repitched ${repitched} note` : t`repitched ${repitched} notes`)
+  if (resized > 0) parts.push(resized === 1 ? t`resized ${resized} note` : t`resized ${resized} notes`)
+  if (velocityChanged > 0) parts.push(velocityChanged === 1 ? t`changed velocity on ${velocityChanged} note` : t`changed velocity on ${velocityChanged} notes`)
+  if (reassigned > 0) parts.push(reassigned === 1 ? t`reassigned hand on ${reassigned} note` : t`reassigned hand on ${reassigned} notes`)
+  return parts.length > 0 ? parts.join(', ') : t`Saved`
 }
 
 // ── Shared unsaved-changes guard — logo reset, load a different file, drag a
@@ -143,10 +143,10 @@ export function buildNoteEditSummary(descriptions: string[]): string {
 export async function confirmDiscardDirtyNoteEdits(message: string): Promise<boolean> {
   if (NES.dirty) {
     const choice = await confirmDialog({
-      title: 'Unsaved Changes',
+      title: t`Unsaved Changes`,
       message,
-      detail: 'Your note edits will be lost if you discard.',
-      buttons: ['Save', 'Discard', 'Cancel'],
+      detail: t`Your note edits will be lost if you discard.`,
+      buttons: [t`Save`, t`Discard`, t`Cancel`],
     })
     if (choice === 2) return false // Cancel
     if (choice === 0) {            // Save

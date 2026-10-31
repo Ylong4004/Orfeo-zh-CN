@@ -1,8 +1,17 @@
-// ── i18n placeholder — mirrors ttag's tagged-template `t` API so new strings
-// wrapped now migrate to real ttag later via a one-line import swap, with no
-// call-site changes. Currently a no-op passthrough: no catalog is loaded,
-// so this just returns the interpolated string as-is (same as English source).
-// See docs/I18N_PLAN.md (gitignored) for the full rollout plan.
+// Orfeo zh-CN community patch v0.1
+import { zhCN } from './orfeoZhCN'
+// Compatible with Orfeo's existing tagged-template `t` API and extractor.
+// Interpolations use {{vN}}; unknown phrases fall back to English.
 export function t(strings: TemplateStringsArray, ...values: unknown[]): string {
-  return strings.reduce((acc, str, i) => acc + str + (i < values.length ? String(values[i]) : ''), '')
+  const msgid = strings.reduce((acc, piece, i) =>
+    acc + piece + (i < values.length ? '{{v' + i + '}}' : ''), '')
+  const translated = zhCN[msgid]
+  if (translated !== undefined) {
+    return translated.replace(/\{\{v(\d+)\}\}/g, (all, index: string) => {
+      const n = Number(index)
+      return n >= 0 && n < values.length ? String(values[n]) : all
+    })
+  }
+  return strings.reduce((acc, piece, i) =>
+    acc + piece + (i < values.length ? String(values[i]) : ''), '')
 }
