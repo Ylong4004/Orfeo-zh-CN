@@ -1,6 +1,6 @@
 # Orfeo on GitHub: downloads and traffic
 
-**Last updated: 8. 11. 2026 at 12:34** Ljubljana time (CET) · updates daily from 07:00
+**Last updated: 9. 11. 2026 at 14:25** Ljubljana time (CET) · updates daily from 07:00
 
 [Ylong4004/Orfeo-zh-CN](https://github.com/Ylong4004/Orfeo-zh-CN) · ★ 0 stars · 0 forks · 0 watching
 
@@ -33,13 +33,13 @@ Highlighted numbers are the ones closest to real people: downloads of the app an
 
 | Day | Installer | Portable | App starts | Page views | Unique visitors | Clones |
 |---|---:|---:|---:|---:|---:|---:|
-| Mon 02 Nov | 0 | 0 | 0 | – | – | – |
 | Tue 03 Nov | 0 | 0 | 0 | – | – | – |
 | Wed 04 Nov | 0 | 0 | 0 | – | – | – |
 | Thu 05 Nov | 0 | 0 | 0 | – | – | – |
 | Fri 06 Nov | 0 | 0 | 0 | – | – | – |
 | Sat 07 Nov | 0 | 0 | 0 | – | – | – |
 | Sun 08 Nov | 0 | 0 | 0 | – | – | – |
+| Mon 09 Nov | 0 | 0 | 0 | – | – | – |
 
 Downloads per day start with the second day of tracking (they are the difference between two daily snapshots); views and clones go back 14 days before tracking started. Today's row is still growing.
 
@@ -47,6 +47,7 @@ Downloads per day start with the second day of tracking (they are the difference
 
 | Week (Mon) | Downloads | — installer | — portable | App starts | Page views |
 |---|---:|---:|---:|---:|---:|
+| 2026-11-09 | 0 | 0 | 0 | 0 | 0 |
 | 2026-11-02 | 0 | 0 | 0 | 0 | 0 |
 | 2026-10-26 | 0 | 0 | 0 | 0 | 0 |
 
