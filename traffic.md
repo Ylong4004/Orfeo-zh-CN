@@ -1,6 +1,6 @@
 # Orfeo on GitHub: downloads and traffic
 
-**Last updated: 17. 11. 2026 at 14:54** Ljubljana time (CET) · updates daily from 07:00
+**Last updated: 18. 11. 2026 at 14:30** Ljubljana time (CET) · updates daily from 07:00
 
 [Ylong4004/Orfeo-zh-CN](https://github.com/Ylong4004/Orfeo-zh-CN) · ★ 0 stars · 0 forks · 0 watching
 
@@ -10,13 +10,13 @@
 
 | | All time | Last 7 days |
 |---|---:|---:|
-| **Downloads** (installer + portable) | <mark>**5**</mark> | <mark>**0**</mark> |
+| **Downloads** (installer + portable) | <mark>**6**</mark> | <mark>**1**</mark> |
 | — Installer (`Orfeo-Setup-x.y.z.exe`) | 0 | 0 |
-| — Portable (`Orfeo-x.y.z-portable.exe`) | 5 | 0 |
+| — Portable (`Orfeo-x.y.z-portable.exe`) | 6 | 1 |
 | App starts checking for updates (`latest.yml`) | 0 | 0 |
 | Updates installed (`.blockmap`) | 0 | 0 |
 
-Downloads by others, excluding the developer's own test downloads (about 4): <mark>**≈ 1**</mark>.
+Downloads by others, excluding the developer's own test downloads (about 4): <mark>**≈ 2**</mark>.
 
 *Downloads* count each time a release file was downloaded. *App starts* count installed copies (installer version) checking GitHub for a newer version when Orfeo starts, so they show the app being used, not just downloaded. The portable version does not check automatically.
 
@@ -26,20 +26,20 @@ Highlighted numbers are the ones closest to real people: downloads of the app an
 
 | Release | Published | Installer | Portable | Total downloads | App starts | Updates |
 |---|---|---:|---:|---:|---:|---:|
-| [1.5.4-portable](https://github.com/Ylong4004/Orfeo-zh-CN/releases/tag/1.5.4-portable) | 2026-10-31 | 0 | 5 | <mark>**5**</mark> | 0 | 0 |
-| **All releases** | | **0** | **5** | <mark>**5**</mark> | **0** | **0** |
+| [1.5.4-portable](https://github.com/Ylong4004/Orfeo-zh-CN/releases/tag/1.5.4-portable) | 2026-10-31 | 0 | 6 | <mark>**6**</mark> | 0 | 0 |
+| **All releases** | | **0** | **6** | <mark>**6**</mark> | **0** | **0** |
 
 ## Last 7 days, day by day
 
 | Day | Installer | Portable | App starts | Page views | Unique visitors | Clones |
 |---|---:|---:|---:|---:|---:|---:|
-| Wed 11 Nov | 0 | 0 | 0 | – | – | – |
 | Thu 12 Nov | 0 | 0 | 0 | – | – | – |
 | Fri 13 Nov | 0 | 0 | 0 | – | – | – |
 | Sat 14 Nov | 0 | 0 | 0 | – | – | – |
 | Sun 15 Nov | 0 | 0 | 0 | – | – | – |
 | Mon 16 Nov | 0 | 0 | 0 | – | – | – |
 | Tue 17 Nov | 0 | 0 | 0 | – | – | – |
+| Wed 18 Nov | 0 | 1 | 0 | – | – | – |
 
 Downloads per day start with the second day of tracking (they are the difference between two daily snapshots); views and clones go back 14 days before tracking started. Today's row is still growing.
 
@@ -47,7 +47,7 @@ Downloads per day start with the second day of tracking (they are the difference
 
 | Week (Mon) | Downloads | — installer | — portable | App starts | Page views |
 |---|---:|---:|---:|---:|---:|
-| 2026-11-16 | 0 | 0 | 0 | 0 | 0 |
+| 2026-11-16 | 1 | 0 | 1 | 0 | 0 |
 | 2026-11-09 | 4 | 0 | 4 | 0 | 0 |
 | 2026-11-02 | 0 | 0 | 0 | 0 | 0 |
 | 2026-10-26 | 0 | 0 | 0 | 0 | 0 |
